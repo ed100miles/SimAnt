@@ -1,10 +1,21 @@
 from PIL import Image
 
-ant_size = 0.1
-ant_img = Image.open('imgs/ant.png')
-orig_ant_height, orig_ant_width = ant_img.size
-ant_img.resize((round(orig_ant_width*ant_size), 
-                round(orig_ant_width*ant_size)))
+# Img resize: 
+# ant_size = 0.01
+# ant_img = Image.open('imgs/ant.png')
+# orig_ant_height, orig_ant_width = ant_img.size
+# ant_img = ant_img.resize((round(orig_ant_width*ant_size), 
+#                 round(orig_ant_width*ant_size)))
+# ant_img.save('imgs/small_ant.png')
 
 
-ant_img.save('small_ant.png')
+# for spin in [45, 90, 135, 180, 225, 270, 315]:
+#     ant_img = ant_img.rotate(-45)
+#     ant_img.save(f'imgs/small_ant{spin}.png')
+
+food_img = Image.open('imgs/food.png')
+
+height, width = food_img.size
+
+food_img = food_img.resize((round(height*0.1), round(height*0.1)))
+food_img.save('imgs/food_small.png')
