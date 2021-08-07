@@ -1,6 +1,6 @@
 import pygame
 from PIL import Image
-from classes.ant_class import Ant, Food
+from classes.ant_class import Ant, EnemyAnt, Food
 
 pygame.init()
 
@@ -26,6 +26,7 @@ clock = pygame.time.Clock()
 
 # Create object instances:
 player_ant = Ant(game_display_height, game_display_width, game_display)
+enemy_ant = EnemyAnt(game_display_height, game_display_width, game_display)
 food = Food(game_display_height, game_display_width, game_display)
 
 # Game loop:
@@ -39,11 +40,13 @@ while not game_over:
         
         # Draw frame:
         game_display.fill(grass)
-        player_ant.orientate()
+        enemy_ant.direction_decision(player_ant)
+        # player_ant.orientate()
         food.draw()
         player_ant.draw()
+        enemy_ant.draw(player_ant)
         pygame.display.update()
-        
+
         clock.tick(30)
 
 pygame.quit()
