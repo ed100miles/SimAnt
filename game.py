@@ -27,6 +27,7 @@ clock = pygame.time.Clock()
 # Create object instances:
 player_ant = Ant(game_display_height, game_display_width, game_display)
 enemy_ant = EnemyAnt(game_display_height, game_display_width, game_display)
+enemy_ant2 = EnemyAnt(game_display_height, game_display_width, game_display)
 food = Food(game_display_height, game_display_width, game_display)
 
 # Game loop:
@@ -37,17 +38,16 @@ while not game_over:
             game_over = True
         if event:
             player_ant.ant_event(event)
-        
-        # Draw frame:
-        game_display.fill(grass)
-        enemy_ant.direction_decision(player_ant)
-        # player_ant.orientate()
-        food.draw()
-        player_ant.draw()
-        enemy_ant.draw(player_ant)
-        pygame.display.update()
+        # print(food.rect)
+    # Draw frame:
+    game_display.fill(grass)
+    food.draw()
+    player_ant.draw(food.rect)
+    enemy_ant.draw(player_ant)
+    enemy_ant2.draw(player_ant)
+    pygame.display.update()
 
-        clock.tick(30)
+    clock.tick(30)
 
 pygame.quit()
 quit()

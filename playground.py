@@ -13,9 +13,9 @@ from PIL import Image
 #     ant_img = ant_img.rotate(-45)
 #     ant_img.save(f'imgs/small_ant{spin}.png')
 
-food_img = Image.open('imgs/food.png')
+food_img = Image.open('imgs/sugar.png')
 
 height, width = food_img.size
 
-food_img = food_img.resize((round(height*0.1), round(height*0.1)))
-food_img.save('imgs/food_small.png')
+food_img = food_img.resize((round(height*0.01), round(height*0.01)))
+food_img.save('imgs/sugar_small.png')
